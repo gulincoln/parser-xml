@@ -1,6 +1,5 @@
 package xmlparser.file.pdf;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,17 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 
-import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.BaseFont;
-import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -27,7 +20,7 @@ import xmlparser.file.object.Campo;
 
 public class PDFFiles {
 
-	public String SearchPathForPDFFiles() throws IOException {
+	public String SearchPathForFiles() throws IOException {
 		JFileChooser chooser = new JFileChooser();
 		chooser.setDialogTitle("Search xml files for Objects Salesforce");
 		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -60,7 +53,6 @@ public class PDFFiles {
 				}
 				document.add(tabela);
 			}
-			JOptionPane.showMessageDialog(null, "Arquivo PDF criado com sucesso");
 			document.close();
 		} catch (DocumentException | FileNotFoundException e) {
 			e.printStackTrace();
